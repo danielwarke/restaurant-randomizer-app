@@ -1,0 +1,16 @@
+export const CATEGORIES = [
+  "American",
+  "Barbecue",
+  "Chinese",
+  "French",
+  "Hamburger",
+  "Indian",
+  "Italian",
+  "Japanese",
+  "Mexican",
+  "Pizza",
+  "Seafood",
+  "Steak",
+  "Sushi",
+  "Thai",
+];
