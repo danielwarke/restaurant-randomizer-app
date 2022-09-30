@@ -38,7 +38,15 @@ export default function App() {
     <>
       <StatusBar style="auto" />
       <NavigationContainer>
-        <TopTabs.Navigator initialRouteName="Restaurants">
+        <TopTabs.Navigator
+          initialRouteName="Restaurants"
+          screenOptions={{
+            tabBarStyle: {
+              height: 100,
+              justifyContent: "flex-end",
+            },
+          }}
+        >
           <TopTabs.Screen name="Randomizer" component={Randomizer} />
           <TopTabs.Screen name="Restaurants" component={RestaurantList} />
         </TopTabs.Navigator>
