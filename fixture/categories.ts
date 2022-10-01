@@ -13,4 +13,5 @@ export const CATEGORIES = [
   "Steak",
   "Sushi",
   "Thai",
+  "Other",
 ];

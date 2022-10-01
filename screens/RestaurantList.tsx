@@ -47,7 +47,7 @@ const RestaurantList = ({
       <>
         <View style={styles.emptyStateContainer}>
           <Text style={styles.emptyStateText}>
-            No restaurants have been created
+            No restaurants have been added
           </Text>
         </View>
         {createButton}

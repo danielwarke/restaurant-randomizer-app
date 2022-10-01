@@ -4,6 +4,7 @@ import { useNavigation } from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons";
 import { useState } from "react";
 import { updateRestaurant } from "../../util/database";
+import { GlobalStyles } from "../../constants/styles";
 
 const RestaurantItem = ({ restaurant }: { restaurant: Restaurant }) => {
   const navigation = useNavigation();
@@ -34,15 +35,15 @@ const RestaurantItem = ({ restaurant }: { restaurant: Restaurant }) => {
             });
           }}
         >
-          <Text>{restaurant.name}</Text>
-          <Text>{restaurant.category}</Text>
+          <Text style={styles.name}>{restaurant.name}</Text>
+          <Text style={styles.category}>{restaurant.category}</Text>
         </Pressable>
       </View>
       <View style={styles.favoriteContainer}>
         <Pressable onPress={toggleRestaurantFavorite}>
           <Ionicons
             name={favorite ? "star" : "star-outline"}
-            color="yellow"
+            color={GlobalStyles.colors.secondary}
             size={24}
           />
         </Pressable>
@@ -59,10 +60,18 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    borderRadius: 8,
+    borderBottomWidth: 0.5,
+    borderBottomColor: "#bbb5b5",
   },
   titleContainer: {
-    flex: 4,
+    flex: 8,
+  },
+  name: {
+    fontSize: 24,
+    marginBottom: 6,
+  },
+  category: {
+    fontSize: 16,
   },
   favoriteContainer: {
     flex: 1,

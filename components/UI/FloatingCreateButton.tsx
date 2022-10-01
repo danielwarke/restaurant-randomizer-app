@@ -4,21 +4,25 @@ import { Ionicons } from "@expo/vector-icons";
 
 const FloatingCreateButton = ({ onPress }: { onPress: Function }) => {
   return (
-    <Pressable onPress={() => onPress()}>
-      <View style={styles.button}>
-        <Ionicons name="add" color="white" size={50} />
-      </View>
-    </Pressable>
+    <View style={styles.floatingContainer}>
+      <Pressable onPress={() => onPress()}>
+        <View style={styles.button}>
+          <Ionicons name="add" color="white" size={50} />
+        </View>
+      </Pressable>
+    </View>
   );
 };
 
 export default FloatingCreateButton;
 
 const styles = StyleSheet.create({
-  button: {
+  floatingContainer: {
     position: "absolute",
     right: 30,
     bottom: 30,
+  },
+  button: {
     width: 75,
     height: 75,
     borderRadius: 75,

@@ -1,6 +1,6 @@
 import { Restaurant } from "../../models/restaurant";
 import { useState } from "react";
-import { View, StyleSheet, Button } from "react-native";
+import { View, StyleSheet, Button, Text } from "react-native";
 import Input from "./Input";
 import { GlobalStyles } from "../../constants/styles";
 import { Picker } from "@react-native-picker/picker";
@@ -24,6 +24,9 @@ const RestaurantForm = ({
 
   return (
     <View style={styles.form}>
+      <Text style={styles.title}>
+        {restaurant ? "Update restaurant" : "Add restaurant"}
+      </Text>
       <Input
         label="Name"
         textInputConfig={{
@@ -32,11 +35,13 @@ const RestaurantForm = ({
           value: name,
         }}
       />
-      <Picker selectedValue={category} onValueChange={setCategory}>
-        {CATEGORIES.map((category) => (
-          <Picker.Item key={category} label={category} value={category} />
-        ))}
-      </Picker>
+      <Input label="Category">
+        <Picker selectedValue={category} onValueChange={setCategory}>
+          {CATEGORIES.map((category) => (
+            <Picker.Item key={category} label={category} value={category} />
+          ))}
+        </Picker>
+      </Input>
       <View style={styles.buttons}>
         <View style={styles.button}>
           <Button
@@ -78,7 +83,6 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: "bold",
-    color: "white",
     marginVertical: 24,
     textAlign: "center",
   },

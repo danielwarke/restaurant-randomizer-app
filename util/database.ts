@@ -60,7 +60,7 @@ export function getRestaurants(
           category ? "WHERE category = " + category + " " : ""
         }${
           favorite ? (category ? "AND" : "WHERE") + "favorite = 1" : ""
-        } ORDER BY category`,
+        } ORDER BY favorite DESC, category`,
         [],
         (_, result) => {
           const restaurants = result.rows._array;
