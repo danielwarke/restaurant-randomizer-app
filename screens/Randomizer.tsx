@@ -37,12 +37,21 @@ const Randomizer = ({}: NativeStackScreenProps<any, "Randomizer">) => {
   }
 
   function pickRandomRestaurant() {
-    const categoryRestaurants =
-      selectedCategory === "Any"
-        ? restaurants
-        : restaurants.filter(
-            (restaurant) => restaurant.category === selectedCategory
-          );
+    let categoryRestaurants: Restaurant[] = [];
+    switch (selectedCategory) {
+      case "Any":
+        categoryRestaurants = restaurants;
+        break;
+      case "Favorites":
+        categoryRestaurants = restaurants.filter(
+          (restaurant) => restaurant.favorite
+        );
+        break;
+      default:
+        categoryRestaurants = restaurants.filter(
+          (restaurant) => restaurant.category === selectedCategory
+        );
+    }
 
     if (categoryRestaurants.length === 0) {
       Alert.alert(
@@ -83,7 +92,7 @@ const Randomizer = ({}: NativeStackScreenProps<any, "Randomizer">) => {
           selectedValue={selectedCategory}
           onValueChange={setSelectedCategory}
         >
-          {["Any", ...CATEGORIES].map((category) => (
+          {["Any", "Favorites", ...CATEGORIES].map((category) => (
             <Picker.Item key={category} label={category} value={category} />
           ))}
         </Picker>
@@ -109,6 +118,7 @@ const styles = StyleSheet.create({
   },
   chosenRestaurant: {
     fontSize: 50,
+    marginBottom: 18,
   },
   section: {
     marginBottom: 32,
