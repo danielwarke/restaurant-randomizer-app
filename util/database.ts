@@ -34,7 +34,7 @@ export function createRestaurant(
         `INSERT INTO restaurants (
             name, 
             category,
-            favorite,
+            favorite
         ) VALUES (?, ?, ?)`,
         [name, category, 0],
         (_, result) => {

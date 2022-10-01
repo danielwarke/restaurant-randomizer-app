@@ -27,18 +27,19 @@ const RestaurantItem = ({ restaurant }: { restaurant: Restaurant }) => {
     <View style={styles.restaurantContainer}>
       <View style={styles.titleContainer}>
         <Pressable
-          onPress={() =>
+          onPress={() => {
+            // @ts-ignore
             navigation.navigate("ModifyRestaurant", {
               restaurantId: restaurant.id,
-            } as any)
-          }
+            });
+          }}
         >
           <Text>{restaurant.name}</Text>
           <Text>{restaurant.category}</Text>
         </Pressable>
       </View>
       <View style={styles.favoriteContainer}>
-        <Pressable>
+        <Pressable onPress={toggleRestaurantFavorite}>
           <Ionicons
             name={favorite ? "star" : "star-outline"}
             color="yellow"

@@ -10,7 +10,7 @@ import FloatingCreateButton from "../components/UI/FloatingCreateButton";
 
 const RestaurantList = ({
   navigation,
-}: NativeStackScreenProps<any, "Restaurants">) => {
+}: NativeStackScreenProps<any, "RestaurantList">) => {
   const isFocused = useIsFocused();
 
   const [restaurants, setRestaurants] = useState<Restaurant[]>([]);
